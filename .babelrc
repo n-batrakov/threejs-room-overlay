@@ -1,0 +1,19 @@
+{
+  "presets": [
+    "@babel/preset-react",
+    ["@babel/preset-typescript", {
+      "isTSX": true,
+      "allExtensions": true
+    }],
+    ["@babel/preset-env", {
+      "targets": ["last 5 Chrome versions", "last 5 Firefox version", "last 1 Safari versions"]
+    }]
+  ],
+  "plugins": [
+    "@babel/proposal-class-properties",
+    "@babel/proposal-object-rest-spread",
+    ["babel-plugin-root-import", {
+      "rootPathSuffix": "./src"
+    }]
+  ]
+}

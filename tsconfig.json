@@ -1,0 +1,32 @@
+{
+    "compilerOptions": {
+        "outDir": "dist",
+        "rootDir": "src",
+        "baseUrl": "src",
+
+
+        "module": "esnext",
+        "esModuleInterop": true,
+        "target": "esnext",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+
+        "noImplicitReturns": false,
+        "noImplicitThis": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "allowSyntheticDefaultImports": true,
+        "lib": ["dom", "DOM.Iterable"],
+        "skipLibCheck": true,
+
+        "jsx": "react",
+
+        "paths": {
+            "~/*": ["*"]
+        }
+    },
+    "include": ["src"],
+    "exclude": [
+        "node_modules"
+    ]
+}

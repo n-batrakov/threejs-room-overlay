@@ -1,0 +1,101 @@
+import { ThemeMaterialProps, ThemeMaterialValue } from "~/components/Material";
+import { ThemeLightProps } from "./ThemeLight";
+import { V3 } from "~/lib";
+import { RenderCallback, ThreeElements } from "@react-three/fiber";
+import { AmbientLight, Mesh, MeshStandardMaterial, RectAreaLight, SpotLight } from "three";
+
+export type Palette = {
+  wallText?: ThemeMaterialValue,
+  wallTextFont?: string,
+  leftWall?: ThemeMaterialValue,
+  rightWall?: ThemeMaterialValue,
+  windowsill?: ThemeMaterialValue,
+  windowFrame?: ThemeMaterialValue,
+  frontWall?: ThemeMaterialValue,
+  floor?: ThemeMaterialValue,
+  floorHeight?: ThemeMaterialValue,
+  floorSkirting?: ThemeMaterialValue,
+  curtains?: ThemeMaterialValue,
+  chairCushion?: ThemeMaterialValue,
+  chairBase?: ThemeMaterialValue,
+  desk?: ThemeMaterialValue,
+  mug?: ThemeMaterialValue,
+  mugSteam?: ThemeMaterialValue,
+  papers?: ThemeMaterialValue,
+  book?: { page?: string, cover?: string },
+  screen?: ThemeMaterialValue,
+  screenText?: string,
+  screenLight?: string,
+  monitor?: ThemeMaterialValue,
+  keyboard?: ThemeMaterialValue,
+  keyboardKey?: ThemeMaterialValue,
+  lamp?: ThemeMaterialValue,
+  lampLight?: string,
+  webCameraHolder?: ThemeMaterialValue,
+  webCamera?: ThemeMaterialValue,
+  shelf?: ThemeMaterialValue,
+  pictureFrame?: ThemeMaterialValue,
+  pictureFramePicture?: ThemeMaterialValue,
+  clock?: ThemeMaterialValue,
+  clockArrow?: ThemeMaterialValue,
+  microphone?: ThemeMaterialValue,
+  microphoneLight?: ThemeMaterialValue,
+};
+
+export type ThemeObjects = {
+  room?: {
+    position?: V3,
+    rotation?: V3,
+    height?: number,
+    width?: number,
+    depth?: number
+    showCeiling?: boolean,
+    showWindow?: boolean,
+    showRightWall?: boolean,
+    showFloorHeight?: boolean,
+    floorHeight?: number,
+    wallThickness?: number,
+  },
+};
+
+export type RoomScene = {
+  wallText?: Mesh<any, MeshStandardMaterial>,
+  ambientLight?: AmbientLight,
+  windowLight?: RectAreaLight,
+  rightLight?: SpotLight,
+  backLight?: SpotLight,
+  topLight?: SpotLight,
+  room?: Mesh<any, MeshStandardMaterial>,
+  chair?: Mesh<any, MeshStandardMaterial>,
+  deskGroup?: Mesh<any, MeshStandardMaterial>,
+  desk?: Mesh<any, MeshStandardMaterial>,
+  controller?: Mesh<any, MeshStandardMaterial>,
+  monitorLeft?: Mesh<any, MeshStandardMaterial>,
+  monitorRight?: Mesh<any, MeshStandardMaterial>,
+  keyboard?: Mesh<any, MeshStandardMaterial>,
+  trackpad?: Mesh<any, MeshStandardMaterial>,
+  book?: Mesh<any, MeshStandardMaterial>,
+  papers?: Mesh<any, MeshStandardMaterial>,
+  mug?: Mesh<any, MeshStandardMaterial>,
+  mugSteam?: Mesh<any, MeshStandardMaterial>,
+  lamp?: Mesh<any, MeshStandardMaterial>,
+  webCamera?: Mesh<any, MeshStandardMaterial>,
+  shelfFull?: Mesh<any, MeshStandardMaterial>,
+  shelf?: Mesh<any, MeshStandardMaterial>,
+  pictureFrame?: Mesh<any, MeshStandardMaterial>,
+  clock?: Mesh<any, MeshStandardMaterial>,
+  microphone?: Mesh<any, MeshStandardMaterial>,
+};
+
+export type Theme = {
+  name: string,
+  palette: Palette,
+  objects?: ThemeObjects,
+  light?: ThemeLightProps,
+  materialProps?: ThemeMaterialProps,
+  effects?: React.ReactElement,
+  animate?: RenderCallback,
+  fog?: React.ReactNode,
+  children?: React.ReactNode,
+  loading?: boolean,
+};
